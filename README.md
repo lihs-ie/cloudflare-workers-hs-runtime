@@ -14,6 +14,8 @@ pnpm add 'github:lihs-ie/cloudflare-workers-hs-runtime#COMMIT_SHA'
 
 Consumers do not run `pnpm pack`. pnpm installs the Git dependency and the package `prepare` script builds `dist` automatically. Replace `COMMIT_SHA` deliberately when accepting a runtime update.
 
+pnpm 12 blocks Git dependency build scripts by default. Add the exact codeload URL shown by `ERR_PNPM_GIT_DEP_PREPARE_NOT_ALLOWED` to `allowBuilds` in `pnpm-workspace.yaml`. This approval is SHA-specific, so a dependency update requires an explicit review and a matching allowlist update.
+
 ## Connect a reactor
 
 ```ts

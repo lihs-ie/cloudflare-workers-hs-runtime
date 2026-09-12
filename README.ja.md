@@ -14,6 +14,8 @@ pnpm add 'github:lihs-ie/cloudflare-workers-hs-runtime#COMMIT_SHA'
 
 利用側で`pnpm pack`を実行する必要はありません。pnpmがGit依存を取得し、パッケージの`prepare`で`dist`を自動生成します。ランタイム更新を受け入れるときだけ`COMMIT_SHA`を変更してください。
 
+pnpm 12はGit依存のbuild scriptを既定で拒否します。`ERR_PNPM_GIT_DEP_PREPARE_NOT_ALLOWED`に表示された完全なcodeload URLを`pnpm-workspace.yaml`の`allowBuilds`へ追加してください。この許可はSHA単位なので、依存更新時には変更内容とallowlistを同時に確認できます。
+
 ## Reactorの接続
 
 ```ts
