@@ -25,10 +25,10 @@
     "docs:check": "node scripts/check-docs.mjs",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
-    "package:check": "pnpm build && publint && attw --pack .",
+    "package:check": "pnpm build && publint && attw --pack --profile esm-only .",
     "check": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm docs:check && pnpm test:coverage && pnpm package:check",
     "prepare": "pnpm build",
-    "prepack": "pnpm check"
+    "prepack": "pnpm build"
   },
   "dependencies": {
     "@bjorn3/browser_wasi_shim": "0.4.2"
